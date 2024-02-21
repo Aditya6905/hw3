@@ -1,3 +1,5 @@
+# app/models/place.rb
 class Place < ApplicationRecord
-  # talks to the "places" table
+  has_many :entries
+  has_many :activities
 end

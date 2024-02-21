@@ -1,3 +1,7 @@
+# config/routes.rb
 Rails.application.routes.draw do
-  resources :places, only: [:index, :show, :new, :create]
+  resources :places do
+    resources :activities
+  end
+  root 'places#index'
 end

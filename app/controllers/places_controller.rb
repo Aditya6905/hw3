@@ -5,6 +5,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+    @activities = @place.activities
   end
 
   def new
@@ -14,7 +15,7 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     if @place.save
-      redirect_to places_path
+      redirect_to @place, notice: 'Place was successfully created.'
     else
       render :new
     end
